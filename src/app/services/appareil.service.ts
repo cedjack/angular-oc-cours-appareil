@@ -2,14 +2,17 @@ export class AppareilService {
 
   appareils = [
     {
+      id: 1,
       name: 'TV',
       status: false
     },
     {
+      id: 2,
       name: 'PS4',
       status: true
     },
     {
+      id: 3,
       name: 'Lampe',
       status: false
     }
