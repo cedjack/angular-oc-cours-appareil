@@ -8,7 +8,7 @@ export class AuthService {
           () => {
             this.isAuth = true;
             resolve(true);
-          }, 500
+          }, 100
         );
       }
     );

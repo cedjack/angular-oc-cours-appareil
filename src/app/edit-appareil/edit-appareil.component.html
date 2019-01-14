@@ -1,18 +1,18 @@
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
-    <form>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
       <div class="form-group">
         <label for="name">Nom de l'appareil</label>
-        <input type="text" id="name" class="form-control" name="name">
+        <input type="text" id="name" class="form-control" name="name" ngModel required>
       </div>
       <div class="form-group">
         <label for="status">Etat de l'appareil</label>
-        <select id="status" class="form-control">
-          <option value="true">Allumé</option>
-          <option value="true">Eteint</option>
+        <select id="status" name="status" class="form-control" [ngModel]="defaultStatus" required>
+          <option value="true">allumé</option>
+          <option value="false">éteint</option>
         </select>
       </div>
-      <button class="btn btn-success" type="submit">Sauvegarder</button>
+      <button class="btn btn-success" type="submit" [disabled]="f.invalid">Enregistrer</button>
     </form>
   </div>
 </div>

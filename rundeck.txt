@@ -1,0 +1,4 @@
+
+
+Windows agent WinRM
+SQL script en direct

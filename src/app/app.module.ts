@@ -17,8 +17,8 @@ import { EditAppareilComponent } from './edit-appareil/edit-appareil.component';
 
 const appRoutes: Routes = [
   {path: 'appareils', canActivate: [AuthGuard], component: AppareilViewComponent},
-  {path: 'appareils/edit', canActivate: [AuthGuard], component: EditAppareilComponent},
   {path: 'appareils/:id', canActivate: [AuthGuard], component: SingleAppareilComponent},
+  {path: 'edit', canActivate: [AuthGuard], component: EditAppareilComponent},
   {path: 'auth', component: AuthComponent},
   {path: '', canActivate: [AuthGuard], component: AppareilViewComponent},
   {path: 'error-404', component: FourOhFourComponent},
