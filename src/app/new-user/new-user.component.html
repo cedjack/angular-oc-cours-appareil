@@ -1,27 +1,26 @@
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
-    <form>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
       <div class="form-group">
         <label for="firstName">Prénom</label>
-        <input type="text" id="firstName" class="form-control" name="firstName">
+        <input type="text" id="firstName" class="form-control" name="firstName" formControlName="firstName">
       </div>
       <div class="form-group">
         <label for="lastName">Nom</label>
-        <input type="text" id="lastName" class="form-control" name="lastName">
+        <input type="text" id="lastName" class="form-control" name="lastName" formControlName="lastName">
       </div>
       <div class="form-group">
-        <label for="email">Email</label>
-        <input type="text" id="email" class="form-control" name="email">
+        <label for="email">Adresse email</label>
+        <input type="email" id="email" class="form-control" name="email" formControlName="email">
       </div>
       <div class="form-group">
-        <label for="drinkPreference">Préférence de boisson</label>
-        <input type="text" id="drinkPreference" class="form-control" name="drinkPreference">
+        <label for="drinkPreference">Préférence de boisson ?</label>
+        <select type="text" id="drinkPreference" class="form-control" name="drinkPreference" formControlName="drinkPreference">
+          <option value="coca">Coca</option>
+          <option value="pepsi">Pepsi</option>
+        </select>
       </div>
-      <div class="form-group">
-        <label for="hobbies">hobbies</label>
-        <input type="text" id="hobbies" class="form-control" name="hobbies">
-      </div>
-      <button class="btn btn-success" type="submit">Enregistrer</button>
+      <button class="btn btn-success" type="submit" [disabled]="userForm.invalid">Enregistrer</button>
     </form>
   </div>
 </div>
