@@ -1,5 +1,10 @@
+<h1 *ngIf="loading">Chargement ...</h1>
 <div class="col-xs-12">
-  <h2>Mes appareils</h2>
+  <h2>Mes appareils
+    <button class="btn btn-default"
+                            [disabled]="!isAuth" (click)="onFetch()" >
+    <i class="fas fa-sync-alt"></i>
+  </button></h2>
   <p>Mise à jour : {{ lastUpdate | async | date:'EEEE d MMM y' | uppercase }}</p>
   <ul class="list-group">
     <app-appareil *ngFor="let appareil of appareils; let i = index"
@@ -18,4 +23,11 @@
           [disabled]="!isAuth" (click)="onEteindre()" >
     Tout éteindre
   </button>
+  &nbsp;
+  <button class="btn btn-primary"
+          [disabled]="!isAuth" (click)="onSave()" >
+    <i class="fas fa-database"></i>
+    Enregistrer
+  </button>
+
 </div>

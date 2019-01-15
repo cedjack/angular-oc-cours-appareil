@@ -8,8 +8,8 @@
       <div class="form-group">
         <label for="status">Etat de l'appareil</label>
         <select id="status" name="status" class="form-control" [ngModel]="defaultStatus" required>
-          <option value="true">allumé</option>
-          <option value="false">éteint</option>
+          <option value=true>allumé</option>
+          <option value=false>éteint</option>
         </select>
       </div>
       <button class="btn btn-success" type="submit" [disabled]="f.invalid">Enregistrer</button>

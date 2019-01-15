@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AppareilService} from '../services/appareil.service';
 import {Subscription} from 'rxjs';
 
@@ -9,6 +9,7 @@ import {Subscription} from 'rxjs';
 })
 export class AppareilViewComponent implements OnInit {
   isAuth = false;
+  loading = false;
 
   lastUpdate = new Promise(
     (resolve, reject) => {
@@ -28,17 +29,20 @@ export class AppareilViewComponent implements OnInit {
     setTimeout(
       () => {
         this.isAuth = true;
-      }, 5000,
+      }, 500,
     );
   }
 
   ngOnInit() {
+    this.loading = true;
     this.appareilsSubscription = this.appareilService.appareilSubject.subscribe(
       (appareils: any[]) => {
         this.appareils = appareils;
       }
     );
+    this.appareilService.getAppareilsFromServerDatabase();
     this.appareilService.emitAppareilSubject();
+    this.loading = false;
   }
 
   onAllumer() {
@@ -49,4 +53,11 @@ export class AppareilViewComponent implements OnInit {
     this.appareilService.switchOffAll();
   }
 
+  onSave() {
+    this.appareilService.saveAppareilsToServerDatabase();
+  }
+
+  onFetch() {
+    this.appareilService.getAppareilsFromServerDatabase();
+  }
 }
